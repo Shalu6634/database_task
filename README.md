@@ -41,9 +41,9 @@ INSERT INTO employee(name,role,salary,age,address,phone) VALUES ('Kajal Sharma',
 ```dart
 SELECT  name,salary FROM employee WHERE name =name;
 ```
-## Find employees with a particular role (e.g., Manager):
+## Find employees with a particular role (e.g., Flutter Developer):
 ```dart
-SELECT  name,role FROM employee WHERE role ='manager';
+SELECT  name,role FROM employee WHERE role ='Flutter Developer';
 ```
 
 ## Search for employees with names containing "An" (case-insensitive):
