@@ -1,23 +1,23 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'Budget_Tracker/view/homeScreen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(myApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class myApp extends StatelessWidget {
+  const myApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
       getPages: [
         GetPage(
           name: '/',
-          page: () => const BudgetTracker(),
+          page: () => const homePage(),
         )
       ],
     );

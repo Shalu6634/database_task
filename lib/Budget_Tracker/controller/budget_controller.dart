@@ -1,22 +1,35 @@
-import 'package:database_task/Budget_Tracker/helper/budget_helper.dart';
+
 import 'package:get/get.dart';
 
-class HomeController extends GetxController
-{
+import '../helper/budget_helper.dart';
+
+class HomeController extends GetxController {
+
+  RxList data = <Map<String, dynamic>>[].obs;
 
   @override
   void onInit() {
+    // TODO: implement onInit
     super.onInit();
+    addData();
     initDb();
   }
-  Future<void>  initDb()
+
+  Future<void> addData()
   async {
-    await BudgetTrackerHelper.budgetTrackerHelper.database;
+    var financeData = await DbHelper.dbHelper.readData();
+    data.assignAll(financeData);
   }
-  void insertRecord()
-   {
-     BudgetTrackerHelper.budgetTrackerHelper.insertData();
+  Future<void> initDb() async {
+    await DbHelper.dbHelper.database;
   }
 
+  Future<void> insertRecord() async {
+    await DbHelper.dbHelper.insertData();
+  }
 
+  Future<void> getRecords()
+  async {
+    await DbHelper.dbHelper.readData();
+  }
 }
