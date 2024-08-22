@@ -46,12 +46,12 @@ SELECT  name,salary FROM employee WHERE name =name;
 SELECT  name,role FROM employee WHERE role ='Flutter Developer';
 ```
 
-## Search for employees with names containing "An" (case-insensitive):
+## Search for employees with names containing "Sh" (case-insensitive):
 
 ```dart
-SELECT  name FROM employee WHERE name LIKE 'S%';
+SELECT  name FROM employee WHERE name LIKE 'Sh%';
 ```
-## Find employees older than 20 and earning more than 25,000:
+## Find employees older than 20 and earning more than RS 25,000:
 
 ```dart
 SELECT * FROM employee WHERE  (salary>25000)AND age>20;
@@ -69,7 +69,7 @@ WHERE id =1
 UPDATE employee SET address = '111,Santi-nagar society,surat' WHERE role  = 'Graphics Designer';
 ```
 
-## Remove an employee with ID 101:
+## Remove an employee with ID 3:
 ```dart
 DELETE FROM employee WHERE id = 3;
 ```
