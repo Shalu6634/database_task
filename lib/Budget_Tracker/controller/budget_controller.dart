@@ -1,35 +1,59 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../helper/budget_helper.dart';
 
 class HomeController extends GetxController {
-
-  RxList data = <Map<String, dynamic>>[].obs;
+  RxList data = [].obs;
+  RxBool isIncome = false.obs;
+  RxDouble totalIncome = 0.0.obs;
+  RxDouble totalExpense = 0.0.obs;
+  TextEditingController txtAmount = TextEditingController();
+  TextEditingController txtCategory = TextEditingController();
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
-    addData();
     initDb();
   }
 
-  Future<void> addData()
-  async {
-    var financeData = await DbHelper.dbHelper.readData();
-    data.assignAll(financeData);
+  void setIncome(bool value) {
+    isIncome.value = value;
   }
-  Future<void> initDb() async {
+
+  Future initDb() async {
     await DbHelper.dbHelper.database;
+    await getRecords();
   }
 
-  Future<void> insertRecord() async {
-    await DbHelper.dbHelper.insertData();
+  Future insertRecord(double amount, int isIncome, String category) async {
+    await DbHelper.dbHelper.insertData(amount, isIncome, category);
+    await getRecords();
   }
 
-  Future<void> getRecords()
-  async {
-    await DbHelper.dbHelper.readData();
+  Future getRecords() async {
+    totalExpense.value = 0.0;
+    totalIncome.value = 0.0;
+    data.value = await DbHelper.dbHelper.readData();
+    for (var i in data) {
+      if (i['isIncome'] == 1) {
+        totalIncome.value = totalIncome.value + i['amount'];
+      } else {
+        totalExpense.value = totalExpense.value + i['amount'];
+      }
+    }
+
+    return data;
+  }
+
+  Future removeRecord(int id) async {
+    await DbHelper.dbHelper.deleteData(id);
+    await getRecords();
+  }
+
+  Future<void> updateRecords(
+      int id, double amount, int isIncome, String category) async {
+    await DbHelper.dbHelper.updateData(id, amount, isIncome, category);
+    await getRecords();
   }
 }
