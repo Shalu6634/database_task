@@ -80,7 +80,33 @@ DELETE FROM employee WHERE id = 3;
 DELETE FROM employee WHERE age <24;
 ```
 <img src  = "https://github.com/user-attachments/assets/08bbbf64-6a8d-4607-ac53-7d589fd9370f" height=40%  width=30%>
-
 <img src  = "https://github.com/user-attachments/assets/fb54552d-22b8-4f75-a83f-88c581276b67" height=40%  width=30%>
 
 
+<h1 align="center">Budget Tracker App </h1>
+
+Budget Tracker App  is a feature-rich mobile application developed with Flutter, designed to help you manage and track your finances efficiently. The app supports full CRUD (Create, Read, Update, Delete) operations for managing expenses and budgets, all backed by a robust local database.
+
+### Features
+- Expense Management: Add, view, edit, and delete expense records.
+- Budget Tracking: Create and modify budget goals and monitor your progress.
+- Local Database: Utilizes SQLite for reliable and secure data storage.
+- 
+### Usage
+
+1. *Create* : Add new Record like category and amount using addRecord method which is stored in Controller. This Details Add to a dataList and it is managed by a GetX controller..
+
+2. *Read*   : Display the list of expense or income by observing the dataList list with `Obx` or `GetBuilder` in the UI. The list is stored in the Controller class.
+
+3. *Update* : Modify an Budget's details by tap on budget item.it will be open dialog box where you can updaterecord
+
+4. *Delete* : Remove an budget record from dataList through a deleteRecord method which is store in Controller.
+
+
+
+
+<p>
+	<img src = "https://github.com/user-attachments/assets/8e1f8e38-1ca4-45b6-a262-0180741fd276"  height = 25%  width = 25%>
+	<img src = "https://github.com/user-attachments/assets/1aef2500-b419-4e8e-822e-64f0505f8fe0"  height = 25%  width = 25%>
+	<img src = "https://github.com/user-attachments/assets/77f8c0fa-c6e6-496f-b8ee-8422435b75c3"  height = 25%  width = 25%>
+</p>
