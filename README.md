@@ -81,6 +81,6 @@ DELETE FROM employee WHERE age <24;
 ```
 <img src  = "https://github.com/user-attachments/assets/08bbbf64-6a8d-4607-ac53-7d589fd9370f" height=40%  width=30%>
 
-
+<img src  = "https://github.com/user-attachments/assets/fb54552d-22b8-4f75-a83f-88c581276b67" height=40%  width=30%>
 
 
