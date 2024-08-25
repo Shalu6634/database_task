@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +12,10 @@ class HomeController extends GetxController {
   RxDouble totalExpense = 0.0.obs;
   TextEditingController txtAmount = TextEditingController();
   TextEditingController txtCategory = TextEditingController();
+  TextEditingController txtImg = TextEditingController();
 
+  Rx<File>? imagePath;
+  RxString dummyImage = 'https://t4.ftcdn.net/jpg/05/75/00/85/360_F_575008502_iL4EIHF2rUqNY2L1o45Q15Mny2j6Wn4W.jpg'.obs;
   @override
   void onInit() {
     super.onInit();
@@ -20,14 +25,17 @@ class HomeController extends GetxController {
   void setIncome(bool value) {
     isIncome.value = value;
   }
+  void setImage(File img) {
+    imagePath = img.obs;
+  }
 
   Future initDb() async {
     await DbHelper.dbHelper.database;
     await getRecords();
   }
 
-  Future insertRecord(double amount, int isIncome, String category) async {
-    await DbHelper.dbHelper.insertData(amount, isIncome, category);
+  Future insertRecord(double amount, int isIncome, String category,String img) async {
+    await DbHelper.dbHelper.insertData(amount, isIncome, category,img);
     await getRecords();
   }
 

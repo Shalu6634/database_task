@@ -1,11 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker_android/image_picker_android.dart';
+import 'package:image_picker_platform_interface/image_picker_platform_interface.dart';
 
 import '../component/add_data.dart';
 import '../component/update_data.dart';
 import '../controller/budget_controller.dart';
-
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -31,14 +31,22 @@ class HomePage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Text('Income : ',style: TextStyle(fontSize: 17.3),),
+                      const Text(
+                        'Income : ',
+                        style: TextStyle(fontSize: 17.3),
+                      ),
                       Text(
                         controller.totalIncome.value.toString(),
-                        style: const TextStyle(color: Colors.green, fontSize: 17),
+                        style:
+                            const TextStyle(color: Colors.green, fontSize: 17),
                       ),
-                      const Text('Expense : ',style: TextStyle(fontSize: 17.3),),
+                      const Text(
+                        'Expense : ',
+                        style: TextStyle(fontSize: 17.3),
+                      ),
                       Text(controller.totalExpense.value.toString(),
-                          style: const TextStyle(color: Colors.red, fontSize: 17)),
+                          style:
+                              const TextStyle(color: Colors.red, fontSize: 17)),
                     ],
                   )),
             ),
@@ -51,7 +59,9 @@ class HomePage extends StatelessWidget {
                         ? Colors.green.shade200
                         : Colors.red.shade200,
                     child: ListTile(
-                        leading: Text(controller.data[index]['id'].toString()),
+                        leading: CircleAvatar(
+                          backgroundColor: Colors.black,
+                        ),
                         title:
                             Text(controller.data[index]['amount'].toString()),
                         subtitle:

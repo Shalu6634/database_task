@@ -43,7 +43,6 @@ IconButton buildIconButton(BuildContext context, HomeController controller, int 
               ),
             ),
             actions: [
-
               MaterialButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -53,18 +52,14 @@ IconButton buildIconButton(BuildContext context, HomeController controller, int 
               ),
               MaterialButton(
                 onPressed: () {
-
                   controller.updateRecords(
                     controller.data[index]['id'],
                     double.parse(
-                        controller.txtAmount.text),
+                        controller.txtAmount.text.toString()),
                     controller.isIncome.value ? 1 : 0,
                     controller.txtCategory.text,
                   );
-                  controller.txtAmount.clear();
-                  controller.txtCategory.clear();
                   Navigator.of(context).pop();
-                  controller.isIncome.value = false;
                   // txtController.clear();/
                 },
                 child: const Text('Save'),

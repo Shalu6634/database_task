@@ -23,7 +23,8 @@ class DbHelper {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         amount REAL NOT NULL,
         isIncome INTEGER NOT NULL,
-        category TEXT);
+        category TEXT
+        img TEXT );
         ''';
         await db.execute(sql);
       },
@@ -31,10 +32,10 @@ class DbHelper {
     return _db;
   }
 
-  Future insertData(double amount, int isIncome, String category) async {
+  Future insertData(double amount, int isIncome, String category,String img) async {
     Database? db = await database;
-    String sql = '''INSERT INTO finance (amount,isIncome,category)
-    VALUES (?,?,?);
+    String sql = '''INSERT INTO finance (amount,isIncome,category,img)
+    VALUES (?,?,?,?);
     ''';
     List args = [amount, isIncome, category];
     await db!.rawInsert(sql, args);
