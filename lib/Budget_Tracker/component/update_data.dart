@@ -46,7 +46,7 @@ IconButton buildIconButton(BuildContext context, HomeController controller, int 
               MaterialButton(
                 onPressed: () {
                   Navigator.pop(context);
-                  txtController.clear();
+
                 },
                 child: const Text('Cancel'),
               ),
@@ -57,7 +57,7 @@ IconButton buildIconButton(BuildContext context, HomeController controller, int 
                     double.parse(
                         controller.txtAmount.text.toString()),
                     controller.isIncome.value ? 1 : 0,
-                    controller.txtCategory.text,
+                    controller.txtCategory.text,controller.ImgPath!.value.path,
                   );
                   Navigator.of(context).pop();
                   // txtController.clear();/

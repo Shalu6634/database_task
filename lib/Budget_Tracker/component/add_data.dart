@@ -29,13 +29,13 @@ FloatingActionButton buildFloatingActionButton(
                       await image.pickImage(source: ImageSource.gallery);
                   String path = xfile!.path;
                   File fileImage = File(path);
-                  controller.setImage(fileImage);
+                  controller.setImg(fileImage);
                 },
                 child: Obx(
                   () => CircleAvatar(
                     radius: 30,
-                    backgroundImage: (controller.imagePath != null)
-                        ? FileImage(controller.imagePath!.value)
+                    backgroundImage: (controller.ImgPath != null)
+                        ? FileImage(controller.ImgPath!.value)
                         : NetworkImage(controller.dummyImage.value),
                   ),
                 ),
@@ -94,13 +94,13 @@ FloatingActionButton buildFloatingActionButton(
                   double amount = double.parse(controller.txtAmount.text);
                   int isIncome = controller.isIncome.value ? 1 : 0;
                   String category = controller.txtCategory.text;
-                  String img = controller.txtImg.text;
-                  controller.insertRecord(amount, isIncome, category, controller.imagePath!.value.path);
+                  controller.insertRecord(amount, isIncome, category,
+                      controller.ImgPath!.value.path);
                   controller.txtAmount.clear();
                   controller.txtCategory.clear();
+
                   controller.isIncome.value = false;
                   Get.back();
-
                 },
                 child: const Text(
                   'Save',
