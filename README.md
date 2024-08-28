@@ -112,13 +112,8 @@ Budget Tracker App  is a feature-rich mobile application developed with Flutter,
 	<img src = "https://github.com/user-attachments/assets/c9319c31-8e37-48e9-a9c7-dec3078312f3"  height = 25%  width = 25%>
 </p>
 
-
-	
-
-
-
-
-
 https://github.com/user-attachments/assets/1e55ec92-4307-469d-829a-8dc4f75aecac
+
+https://github.com/user-attachments/assets/633b4013-7f4e-417c-b2d0-53e80c4647e7
 
 
